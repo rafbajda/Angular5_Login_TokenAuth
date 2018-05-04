@@ -11,10 +11,6 @@ export class LoginGuard implements CanActivate {
             this.router.navigate(['/profile']);        
             return false;
         }
- 
         return true;
     }
-
-    
-
 }

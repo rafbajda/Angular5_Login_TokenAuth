@@ -1,17 +1,21 @@
 <div class="row">
-  <div class="col s6 offset-s1">
+  <div class="col s4 offset-s2">
     <div class="card z-depth-5" > 
       <div class="card-content">
-          <div *ngIf="loading" class="progress">
-              <div  class="indeterminate"></div>
-          </div>
-          <h3 class="center-align">Sign in</h3>
-
+        <div class="row center-align">
+            <img src="../../assets/sign-in-logo.png">
+            <alert></alert>
+        </div>
+        <div class="row">
+            <div  class="progress">
+              <div *ngIf="loading" class="indeterminate"></div>
+            </div>
+        </div>
+       
           <form class="" name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
-              <div class="row">                               
-                
+              <div class="row"> 
                 <div class="input-field col s12 ">
-                    <i class="material-icons prefix">account_circle</i>
+                  <i class="material-icons prefix">account_circle</i>
                   <input id="UserNameInput" class="validate" type="text" name="UserName" #UserName="ngModel" [(ngModel)]="model.username" minlength = "3" required>
                   <label for="UserNameInput">Login</label>
                   <span class="helper-text" [attr.data-error]="UserName.errors?(UserName.errors.required?'Required field!':'Minimum 3 characters needed'):''" data-succes = "" for="UserNameInput"></span>
@@ -19,30 +23,19 @@
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix">vpn_key</i>
+                  <i class="material-icons prefix">vpn_key</i>
                   <input id="PasswordInput" type="password" class="validate" name="Password" #Password="ngModel" [(ngModel)]="model.password" minlength = "3" required>
                   <label for="PasswordInput">Password</label>
                   <span class="helper-text" [attr.data-error]="Password.errors?(Password.errors.required?'Required field!':'Minimum 3 characters needed'):''" data-succes = "" for="Password"></span>
-                  </div>
+                </div>
               </div>
-              <div class="row">
-                <div class="col s6">
-                  
-                  <button [disabled]="loading" class="btn-large btn-submit z-depth-3" type="submit">
-                    Login
+              <div class="row">                  
+                  <button [disabled]="loading" class="col s8  offset-s2 btn-large btn-submit z-depth-3" type="submit">
+                     Login
                   </button>
-                  </div>
-                  <div class="col s6">
-                    <alert></alert>
-                  </div>
-
-                 
-                
               </div>
-            </form>      
-      </div>    
-        
-          
+          </form>      
+      </div>  
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'; 
-import { AlertService } from '../shared/alert.service';
- 
+import { AlertService } from '../services/alert.service';
+import { AlertMsg } from '../models/alertMsg.model';
 @Component({
     moduleId: module.id,
     selector: 'alert',
@@ -9,7 +9,7 @@ import { AlertService } from '../shared/alert.service';
 })
  
 export class AlertComponent {
-    message: any;
+    message: AlertMsg;
  
     constructor(private alertService: AlertService) { }
  

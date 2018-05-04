@@ -1,8 +1,10 @@
 import { Component, OnInit, HostBinding} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+
+import { AuthenticationService } from '../services/authentication.service';
+import { AlertService } from '../services/alert.service';
+import { Login } from '../models/login.model';
 import { moveIn } from '../router.animations';
-import { AlertService } from '../shared/alert.service';
-import { AuthenticationService } from '../shared/authentication.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -12,8 +14,11 @@ import { AuthenticationService } from '../shared/authentication.service';
   host: {'[@moveIn]': ''}
 })
 export class SignInComponent implements OnInit {
-  model: any = {};
-  loading = false;
+  model: Login = {
+      username: null,
+      password: null
+  };
+  loading: boolean = false;
   returnUrl: string;
 
   constructor(
@@ -23,10 +28,7 @@ export class SignInComponent implements OnInit {
       private alertService: AlertService) { }
 
   ngOnInit() {
-      // reset login status
       this.authenticationService.logout();
-
-      // get return url from route parameters or default to '/'
       this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 

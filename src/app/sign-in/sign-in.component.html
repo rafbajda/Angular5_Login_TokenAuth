@@ -12,13 +12,13 @@
             </div>
         </div>
        
-          <form class="" name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+          <form class="" name="form" (ngSubmit)="login()" #f="ngForm" novalidate>
               <div class="row"> 
                 <div class="input-field col s12 ">
                   <i class="material-icons prefix">account_circle</i>
                   <input id="UserNameInput" class="validate" type="text" name="UserName" #UserName="ngModel" [(ngModel)]="model.username" minlength = "3" required>
                   <label for="UserNameInput">Login</label>
-                  <span class="helper-text" [attr.data-error]="UserName.errors?(UserName.errors.required?'Required field!':'Minimum 3 characters needed'):''" data-succes = "" for="UserNameInput"></span>
+                  <span class="helper-text" [attr.data-error]="UserName.errors?(UserName.errors.required?'Required field!':'Minimum 3 characters needed'):''" for="UserNameInput"></span>
                 </div>        
               </div>
               <div class="row">
@@ -26,7 +26,7 @@
                   <i class="material-icons prefix">vpn_key</i>
                   <input id="PasswordInput" type="password" class="validate" name="Password" #Password="ngModel" [(ngModel)]="model.password" minlength = "3" required>
                   <label for="PasswordInput">Password</label>
-                  <span class="helper-text" [attr.data-error]="Password.errors?(Password.errors.required?'Required field!':'Minimum 3 characters needed'):''" data-succes = "" for="Password"></span>
+                  <span class="helper-text" [attr.data-error]="Password.errors?(Password.errors.required?'Required field!':'Minimum 3 characters needed'):''" for="Password"></span>
                 </div>
               </div>
               <div class="row">                  

@@ -20,6 +20,7 @@ export class SignInComponent implements OnInit {
   };
   loading: boolean = false;
   returnUrl: string;
+  trySubmit: boolean = false;
 
   constructor(
       private route: ActivatedRoute,
@@ -31,8 +32,11 @@ export class SignInComponent implements OnInit {
       this.authenticationService.logout();
       this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
-
+  onClick(){
+      this.trySubmit = true;
+  }
   login() {
+      this.trySubmit = false;
       this.loading = true;
       this.authenticationService.login(this.model.username, this.model.password)
           .subscribe(

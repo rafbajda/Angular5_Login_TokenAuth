@@ -23,10 +23,12 @@ export class ProfileComponent implements OnInit {
 ) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));      
   }
-  
+  loading: boolean = false;
+
   ngOnInit() {
   }
   logOut(){
+    this.loading = true;
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }

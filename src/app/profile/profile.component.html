@@ -2,14 +2,11 @@
     <div class="col s4 offset-s2">
       <div class="card z-depth-5">
 
-        <div class="card-image">
-            <div *ngIf="loading" class="progress">
-                <div  class="indeterminate"></div>
-            </div>
+        <div class="card-image">   
             <img src="../../assets/profile-background-default.jpg">
             <div class="pad profileImage center-align">
                 <img id = "profileImg" src="../../assets/profile-img.png" alt="">
-            </div>
+            </div>          
         </div> 
 
         <div class="card-content">
@@ -28,6 +25,10 @@
             <button (click)="logOut()" [disabled]="loading" class="btn-large btn-submit z-depth-3">
                 Logout
               </button>
+              
+              <div *ngIf="loading" class="progress ">
+                  <div  class="indeterminate"></div>
+              </div>
         </div>
         
       </div>
